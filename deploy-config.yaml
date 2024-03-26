@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8ssample-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8ssample
+  template:
+    metadata:
+      labels:
+        app: k8ssample
+    spec:
+      containers:
+        - name: core-k8ssample
+          image: k8ssample-image:latest
+          ports:
+            - containerPort: 80
